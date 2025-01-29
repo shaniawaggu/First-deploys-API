@@ -1,9 +1,13 @@
 const express = require('express')
+const cors = require('cors')
 const app = express()
 
 const logger = require("./logger")
-//middleware - - Passing json into js - Logger - logs that traffic that comes into the server
+
+//middleware - 
+// - Passing json into js - Logger - logs that traffic that comes into the server
 // - This is useful for debugging see what reuests are useful for what endpoint and see what requests are succeeding
+app.use(cors()) // allow this rrequest to come through, you are allowed to share resorces accorss different origings
 app.use(express.json())
 app.use(logger) // no () as we only it to run when triggered 
 
